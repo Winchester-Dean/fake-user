@@ -14,13 +14,15 @@
 import random
 import string
 
-class EmailGenerator:
+from config import FakeUserConfig
+
+class EmailGenerator(FakeUserConfig):
     """Generate fake email address"""
     def run(self):
         name = "".join(
             random.choices(
                 string.ascii_letters,
-                k=10
+                k=15
             )
         )
 
@@ -36,8 +38,8 @@ class EmailGenerator:
             "yandex.ua"
         ]
 
-        print(
-            "Email: {}@{}".format(
+        self.console.print(
+            "[bold white]Email:[/] [bold red]{}@{}[/]".format(
                 name,
                 random.choice(domen)
             )

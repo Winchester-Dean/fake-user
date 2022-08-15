@@ -16,8 +16,8 @@ from config import FakeUserConfig
 class UserAgentGenerator(FakeUserConfig):
     """Generate fake user agent"""    
     def run(self):
-        print(
-            "User agent: {}".format(
+        self.console.print(
+            "[bold white]User agent:[/] [bold red]{}[/]".format(
                 self.fake.user_agent()
             )
         )

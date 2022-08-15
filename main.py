@@ -16,6 +16,9 @@ import inspect
 
 from typing import List, Callable, Awaitable, Union
 from importlib import import_module
+from rich.console import Console
+
+console = Console()
 
 class Main:
     def __init__(
@@ -43,29 +46,48 @@ class Main:
                         ))
     
     def run(self):
-        for index, module in enumerate(self.all_generators):
+        for index, module in enumerate(
+            self.all_generators
+        ):
             instance, doc = module
 
-            print(
-                "{}. {}.".format(
-                    index + 1,
-                    doc
+            console.print(
+                "\t\t[bold white]{index}.[/] [bold green]{doc}.[/]".format(
+                    index = index + 1,
+                    doc = doc
                 )
             )
 
         print()
 
-        try:
-            while True:
-                choice = input("> ")
-
-                if choice.isdigit():
-                    choice = int(choice) - 1
+        while True:
+            try:
+                while True:
+                    choice = console.input(
+                        "[bold white]>> [/]"
+                    )
+                    if choice.isdigit():
+                        choice = int(choice) - 1
+                        break
 
                 instance = self.all_generators[choice][0]
                 instance.run()
-        except KeyboardInterrupt:
-            exit("Bye !")
+            except IndexError as error:
+                console.print(
+                    "[bold white]Error:[/] [red]{}[/]".format(
+                        error
+                    )
+                )
+                exit()
+            except ValueError as error:
+                console.print(
+                    "[bold white]Error:[/] [red]{}[/]".format(
+                        error
+                    )
+                )
+                exit()
+            except KeyboardInterrupt:
+                exit("Bye !")
 
 if __name__ == "__main__":
     if os.name == "nt":
@@ -73,10 +95,9 @@ if __name__ == "__main__":
     else:
         os.system("clear")
 
-    print(
-        "Copyright (C) 2022  https://github.com/Winchester-Dean/user-bot\n"
-        "This program comes with ABSOLUTELY NO WARRANTY.\n"
-        "This is free software, and you are welcome to redistribute it under certain conditions.\n"
-    )
-
+    console.print("""
+[bold magenta]Copyright (C) 2022  https://github.com/Winchester-Dean/fake-user
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions.[/]
+""")
     Main().run()

@@ -16,8 +16,8 @@ from config import FakeUserConfig
 class NameGenerator(FakeUserConfig):
     """Generate fake name"""
     def run(self):
-        print(
-            "Name: {}".format(
+        self.console.print(
+            "[bold white]Name:[/] [bold red]{}[/]".format(
                 self.fake.name()
             )
         )

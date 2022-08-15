@@ -14,18 +14,20 @@
 import random
 import string
 
-class PasswordGenerator:
+from config import FakeUserConfig
+
+class PasswordGenerator(FakeUserConfig):
     """Generate password"""
     def run(self):
         password = "".join(
             random.choices(
                 string.ascii_letters,
-                k=10
+                k=15
             )
         )
 
-        print(
-            "Password: {}".format(
+        self.console.print(
+            "[bold white]Password:[/] [bold red]{}[/]".format(
                 password
             )
         )

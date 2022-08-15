@@ -13,11 +13,12 @@
 
 from config import FakeUserConfig
 
+
 class CreditCardGenerator(FakeUserConfig):
     """Generate fake credit card"""    
     def run(self):
-        print(
-            "Credit card: \n{}".format(
+        self.console.print(
+            "[bold white]Credit card:[/] \n[bold red]{}[/]".format(
                 self.fake.credit_card_full()
             )
         )

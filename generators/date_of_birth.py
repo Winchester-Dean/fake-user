@@ -13,11 +13,13 @@
 
 import random
 
-class DateOfBirthGenerator:
+from config import FakeUserConfig
+
+class DateOfBirthGenerator(FakeUserConfig):
     """Generate fake date of birth"""
     def run(self):
-        print(
-            "Date of birth: {}.{}.{}".format(
+        self.console.print(
+            "[bold white]Date of birth:[/] [bold red]{}.{}.{}[/]".format(
                 random.randint(1980, 2000),
                 random.randint(1, 12),
                 random.randint(1, 30)

@@ -12,6 +12,7 @@
 # If not, see <https://www.gnu.org/licenses/>.
 
 from faker import Faker
+from rich.console import Console
 
 launge = "ru" # ru or en
 
@@ -23,4 +24,5 @@ else:
     lang_code = "en_US"
 
 class FakeUserConfig:
+    console = Console()
     fake = Faker(lang_code)

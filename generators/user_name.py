@@ -14,18 +14,20 @@
 import random
 import string
 
-class UserNameGenerator:
+from config import FakeUserConfig
+
+class UserNameGenerator(FakeUserConfig):
     """Generate fake user name"""
     def run(self):
         username = "".join(
             random.choices(
                 string.ascii_letters,
-                k=10
+                k=15
             )
         )
 
-        print(
-            "User name: {}".format(
+        self.console.print(
+            "[bold white]User name:[/] [bold red]{}[/]".format(
                 username
             )
         )

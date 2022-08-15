@@ -16,8 +16,8 @@ from config import FakeUserConfig
 class AddressGenerator(FakeUserConfig):
     """Generate fake address"""
     def run(self):
-        print(
-            "Address: {}".format(
+        self.console.print(
+            "[bold white]Address:[/] [bold red]{}[/]".format(
                 self.fake.address()
             )
         )

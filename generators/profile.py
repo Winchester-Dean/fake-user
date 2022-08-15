@@ -30,9 +30,9 @@ class ProfileGenerator(FakeUserConfig):
         mail = profile["mail"]
         birthdate = profile["birthdate"]
 
-        print(
-            "Profile:\n"
-            f"Job: {job}\n"
+        self.console.print(
+            "[bold white]Profile:[/]\n"
+            f"[bold red]Job: {job}\n"
             f"Company: {company}\n"
             f"Ssn: {ssn}\n"
             f"Residence: {residence}\n"
@@ -41,5 +41,5 @@ class ProfileGenerator(FakeUserConfig):
             f"Sex: {sex}\n"
             f"Address: {address}\n"
             f"Email: {mail}\n"
-            f"Date of birth: {birthdate}"
+            f"Date of birth: {birthdate}[/]"
         )

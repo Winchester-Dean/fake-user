@@ -16,8 +16,8 @@ from config import FakeUserConfig
 class PhoneGenerator(FakeUserConfig):
     """Generate fake phone number"""
     def run(self):
-        print(
-            "Phone: {}".format(
+        self.console.print(
+            "[bold white]Phone:[/] [bold red]{}[/]".format(
                 self.fake.phone_number()
             )
         )

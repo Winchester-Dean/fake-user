@@ -13,11 +13,12 @@
 
 from config import FakeUserConfig
 
+
 class AndroidPlatformGenerator(FakeUserConfig):
     """Generate android platform"""
     def run(self):
-        print(
-            "Android platform: {}".format(
+        self.console.print(
+            "[bold white]Android platform:[/] [bold red]{}[/]".format(
                 self.fake.android_platform_token()
             )
         )

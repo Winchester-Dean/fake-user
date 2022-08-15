@@ -13,11 +13,12 @@
 
 from config import FakeUserConfig
 
+
 class CoordinateGenerator(FakeUserConfig):
     """Generate fake coordinate"""
     def run(self):
-        print(
-            "Coordinate: {}".format(
+        self.console.print(
+            "[bold white]Coordinate:[/] [bold red]{}[/]".format(
                 self.fake.coordinate()
             )
         )

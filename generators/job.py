@@ -16,8 +16,8 @@ from config import FakeUserConfig
 class JobGenerator(FakeUserConfig):
     """Generate job"""    
     def run(self):
-        print(
-            "Job: {}".format(
+        self.console.print(
+            "[bold white]Job:[/] [bold red]{}[/]".format(
                 self.fake.job()
             )
         )
