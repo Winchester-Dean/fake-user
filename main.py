@@ -17,6 +17,7 @@ import inspect
 from typing import List, Callable, Awaitable, Union
 from importlib import import_module
 from rich.console import Console
+from logo import logo
 
 console = Console()
 
@@ -95,9 +96,12 @@ if __name__ == "__main__":
     else:
         os.system("clear")
 
+    logo()
+
     console.print("""
 [bold magenta]Copyright (C) 2022  https://github.com/Winchester-Dean/fake-user
 This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it under certain conditions.[/]
 """)
+
     Main().run()
